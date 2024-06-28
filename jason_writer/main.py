@@ -9,6 +9,7 @@ def create_json(dict,name):
                 file_.write(f'  "{i}": {dict[i]}\n');
         file_.write("}");
 
+#fix string value,
 
 def read_json(path):
     dict_ = {};
