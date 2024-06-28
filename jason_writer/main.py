@@ -38,24 +38,31 @@ def read_json(path):
     return  f_dict;
 
 def create_list_jason(dict_list,name):
+    with open(f"{name}.json", "a") as file_:
+        file_.write("{\n");
+        file_.write(f' "{name}": [\n');
     for dict in dict_list:
         with open(f"{name}.json", "a") as file_:
-            file_.write("{\n");
+            file_.write("    {\n");
             for i in dict.keys():
                 a = list(dict.keys());
                 b = dict[i];
                 if isinstance(b,int):
                     if i != a[-1]:
-                        file_.write(f'  "{i}": {b},\n');
+                        file_.write(f'       "{i}": {b},\n');
                     else:
-                        file_.write(f'  "{i}": {b}\n');
+                        file_.write(f'       "{i}": {b}\n');
                 else:
                     if i != a[-1]:
-                        file_.write(f'  "{i}": "{b}",\n');
+                        file_.write(f'       "{i}": "{b}",\n');
                     else:
-                        file_.write(f'  "{i}": "{b}"\n');
-            file_.write("}");
-            file_.write("\n");
+                        file_.write(f'       "{i}": "{b}"\n');
+            if dict != dict_list[-1]:
+                file_.write("    },\n");
+            else:
+                file_.write("    }\n");
+    with open(f"{name}.json", "a") as file_:
+        file_.write(" ]\n}");
 
 a = [
     {"abc":123,123:"abc"},
