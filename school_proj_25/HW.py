@@ -21,4 +21,5 @@ def sel_view(a = "*"):
     for i in DbCursur:
         print(i);
 
+
 sel_view();
