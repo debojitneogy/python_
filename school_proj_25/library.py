@@ -3,7 +3,7 @@ import mysql.connector
 db = mysql.connector.connect(
     host = "localhost",
     user = "root",
-    password = "root",
+    password = "123456789",
     port = "3306"
 );
 
